@@ -16,7 +16,7 @@ export const cameraSlice = createSlice({
     setCameraImage: (state, action: PayloadAction<string>) => {
       state.cameraImage = action.payload;
     },
-    resetCameraImage: (state, action: PayloadAction<string>) => {
+    resetCameraImage: (state) => {
       state.cameraImage = '';
     },
   },
