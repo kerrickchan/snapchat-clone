@@ -17,6 +17,7 @@ import firebase from 'firebase';
 
 import { resetCameraImage, selectCameraImage } from './features/cameraSlice';
 import { db, storage } from './firebase';
+import { selectUser } from './features/appSlice';
 
 import "./Preview.css";
 
@@ -24,6 +25,7 @@ export default function Preview() {
   const cameraImage = useSelector(selectCameraImage);
   const history = useHistory();
   const dispatch = useDispatch();
+  const user = useSelector(selectUser);
 
   React.useEffect(() => {
     if (!cameraImage) {
@@ -52,9 +54,9 @@ export default function Preview() {
           .then(imageUrl => {
             db.collection('posts').add({
               imageUrl,
-              username: 'dev',
+              username: user!.username,
               read: false,
-              // profilePic,
+              profilePic: user!.profilePic,
               timestamp: firebase.firestore.FieldValue.serverTimestamp(),
             });
             history.replace('/chats');

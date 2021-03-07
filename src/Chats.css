@@ -20,6 +20,7 @@
 }
 
 .chats__search {
+  color: white;
   display: flex;
   align-items: center;
   flex: 1;
@@ -58,4 +59,18 @@
   scrollbar-width: none; /* For Firefox */
 }
 
+.chats__takePic {
+  background-color: white;
+  color: gray;
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 200px;
+  font-size: 40px;
+  cursor: pointer;
+}
 
+.chats__takePic:hover {
+  opacity: 0.8;
+}

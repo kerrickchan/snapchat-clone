@@ -1,13 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+
 import { RootState } from '../app/store';
+import User from '../User';
 
 interface AppState {
-  user: string;
+  user: User | null;
   selectImage: string;
 }
 
 const initialState: AppState = {
-  user: "",
+  user: null,
   selectImage: "",
 };
 
@@ -15,11 +17,11 @@ export const appSlice = createSlice({
   name: 'app',
   initialState,
   reducers: {
-    login: (state, action: PayloadAction<string>) => {
+    login: (state, action: PayloadAction<User>) => {
       state.user = action.payload;
     },
     logout: (state) => {
-      state.user = "";
+      state.user = null;
     },
     selectImage: (state, action: PayloadAction<string>) => {
       state.selectImage = action.payload;
