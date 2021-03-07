@@ -10,6 +10,7 @@ import WebcamCapture from './WebcamCapture';
 import { login, logout, selectUser } from './features/appSlice';
 import { auth } from './firebase';
 
+import logo from "./images/snapchat.jpg";
 import './App.css';
 
 function App() {
@@ -38,7 +39,7 @@ function App() {
           <Login /> :
           <>
             <img className="app__logo"
-              src="https://lakeridgenewsonline.com/wp-content/uploads/2020/04/snapchat.jpg"
+              src={logo}
               alt="App Logo"
             />
             <div className="app__body">
