@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { CountdownCircleTimer } from 'react-countdown-circle-timer';
@@ -11,9 +11,9 @@ export default function ChatView() {
   const selectedImage = useSelector(selectSelectedImage);
   const history = useHistory();
 
-  const exit = () => {
+  const exit = useCallback(() => {
     history.replace('/chats');
-  }
+  }, [history])
 
   React.useEffect(() => {
     if (!selectedImage) {
